@@ -102,15 +102,15 @@
     }
 
     // OTOMATİK GÜN SAYACI
-// Bugün 98. gün olduğu için 98 gün önceki tarih: 3 Ocak 2025
-const baslangicTarihi = new Date('2025-01-02');
-    
-    function gunSayisiniHesapla() {
-      const bugun = new Date();
-      const zamanFarki = bugun - baslangicTarihi;
-      const gunFarki = Math.floor(zamanFarki / (1000 * 60 * 60 * 24));
-      return Math.max(0, gunFarki);
-    }
+// Başlangıç tarihi: 17 Nisan 2025
+const baslangicTarihi = new Date('2025-04-17');
+
+function gunSayisiniHesapla() {
+  const bugun = new Date();
+  const zamanFarki = bugun - baslangicTarihi;
+  const gunFarki = Math.floor(zamanFarki / (1000 * 60 * 60 * 24));
+  return Math.max(0, gunFarki);
+}
     
     // Sayacı ilk yükleme
     document.getElementById('gunSayaci').textContent = gunSayisiniHesapla();
