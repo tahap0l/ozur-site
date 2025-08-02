@@ -1,38 +1,91 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <title>Özür Dilerim ♥</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Özür Dilerim ♥</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <h1>Özür Dilerim ♥</h1>
-    <p>Bu siteyi senin için yaptım. Bütün güzel anılarımızı, şarkılarımızı ve hatıralarımızı burada topladım. Affet beni...</p>
+    <div class="container">
+        <div class="main-content">
+            <h1 class="main-title">Özür Dilerim ♥</h1>
+            <p class="main-description">
+                Bu siteyi senin için yaptım. Bütün güzel anılarımızı, 
+                şarkılarımızı ve hatıralarımızı burada topladım. 
+                Affet beni...
+            </p>
+            
+            <div class="button-group">
+                <button class="primary-button" onclick="showPasswordModal()">
+                    🔐 Barışalım mı?
+                </button>
+                <button class="secondary-button" onclick="toggleKararsiz()">
+                    💭 Kararsız isen buraya dokun
+                </button>
+            </div>
 
-    <button onclick="location.href='ozel.html'">Barışalım mı?</button>
-    <button onclick="showKararsiz()">Kararsız isen buraya dokun</button>
-
-    <div id="kararsizText" style="display:none; margin-top:20px;">
-      <h2>Yasir - Hazel</h2>
-      <p>Bazen kelimeler yetersiz kalıyor, çünkü hissettiklerim öyle gerçek ki Sana yaşattığım o kırgınlık için ne söylesem az geliyor
-Biliyorum, seni kırdım Belki güvenini biraz sarstım Ama inan, içimdeki sevgi en ufak bir an bile eksilmedi. Tam tersine, seni kaybetme korkusuyla katlandı, büyüdü.
-
-Senin gülüşün,gözlerin, sesin her şeyin içimde bir yer etti. Sana baktığımda kendimi evimde gibi hissediyorum. Ve inan, evimi kırdığım için içim paramparça.
-
-Gözünden akan her bir gözyaşı için dünyaları yakarım .biliyorum dedigin gibi bu 3 ayda seni çok aglattım iyi gelmem gerekirken seni hep üzdüm hepsi için çok pişmanım Çünkü sen benim en güzel yanım, en büyük şansım, ilk ve son aşkımsın.
-
-Seni çok seviyorum…
-Ve tüm kalbimle af diliyorum.
-Sevgilin yasir</p>
+            <div id="kararsizSection" class="kararsiz-section" style="display: none;">
+                <div class="kararsiz-content">
+                    <h2>Yaşır - Hazel</h2>
+                    <p>
+                        Bu güne kadar yaşadığımız özel ve güzel şeylerin 
+                        olduğu bir macerayız biz...
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <script>
-    function showKararsiz() {
-      document.getElementById("kararsizText").style.display = "block";
-    }
-  </script>
+    <!-- Şifre Modalı -->
+    <div id="passwordModal" class="password-modal">
+        <div class="password-content">
+            <span class="close-password" onclick="closePasswordModal()">&times;</span>
+            <h3>🔐 Özel Erişim</h3>
+            <p>Devam etmek için özel şifreyi gir:</p>
+            <input type="password" id="passwordInput" placeholder="Şifreyi gir..." class="password-input">
+            <button class="submit-password" onclick="checkPassword()">Giriş Yap</button>
+            <p class="password-hint">İpucu: Unutulmaz bir tarih...</p>
+        </div>
+    </div>
+
+    <script>
+        // Şifre: 17042025 (17 Nisan 2025)
+        const correctPassword = "17042025";
+        
+        function toggleKararsiz() {
+            const section = document.getElementById('kararsizSection');
+            section.style.display = section.style.display === 'none' ? 'block' : 'none';
+        }
+        
+        function showPasswordModal() {
+            document.getElementById('passwordModal').style.display = 'flex';
+        }
+        
+        function closePasswordModal() {
+            document.getElementById('passwordModal').style.display = 'none';
+            document.getElementById('passwordInput').value = '';
+        }
+        
+        function checkPassword() {
+            const input = document.getElementById('passwordInput').value;
+            if (input === correctPassword) {
+                closePasswordModal();
+                window.location.href = 'ozel.html';
+            } else {
+                alert('❌ Yanlış şifre! Tekrar dene...');
+                document.getElementById('passwordInput').value = '';
+                document.getElementById('passwordInput').focus();
+            }
+        }
+        
+        // Enter tuşu ile giriş
+        document.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && document.getElementById('passwordModal').style.display === 'flex') {
+                checkPassword();
+            }
+        });
+    </script>
 </body>
 </html>
