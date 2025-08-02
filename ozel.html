@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Seninle Geçen Günler</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -187,8 +187,13 @@
     </div>
 
     <script>
-        // Flying hearts effect
+        // Flying hearts effect - mobilde daha az yoğun
         function createFlyingHeart() {
+            if (window.innerWidth < 768) {
+                // Mobilde daha az kalp
+                if (Math.random() > 0.7) return;
+            }
+            
             const container = document.getElementById('flyingHearts');
             const heart = document.createElement('div');
             heart.innerHTML = '💕';
@@ -199,7 +204,7 @@
             heart.style.left = startPos + '%';
             
             // Random size
-            const size = 1 + Math.random() * 2;
+            const size = 1 + Math.random() * 1.5;
             heart.style.fontSize = size + 'rem';
             
             // Random color
@@ -214,8 +219,8 @@
             }, 5000);
         }
 
-        // Create hearts periodically
-        setInterval(createFlyingHeart, 1000);
+        // Create hearts periodically - mobilde daha yavaş
+        let heartInterval = setInterval(createFlyingHeart, window.innerWidth < 768 ? 2000 : 1000);
 
         // Modal fonksiyonları
         function showModal(imgSrc, date, description) {
@@ -346,29 +351,30 @@
             if (typeof confetti !== 'undefined') {
                 // Başlangıç konfetisi
                 confetti({
-                    particleCount: 200,
+                    particleCount: window.innerWidth < 768 ? 100 : 200,
                     spread: 80,
                     origin: { y: 0.6 },
                     colors: ['#ff1493', '#4A90E2', '#89CFF0', '#ff69b4', '#1560BD']
                 });
                 
-                // Sürekli konfeti
+                // Sürekli konfeti - mobilde daha az yoğun
+                const confettiCount = window.innerWidth < 768 ? 30 : 60;
                 const confettiInterval = setInterval(() => {
                     confetti({
-                        particleCount: 60,
+                        particleCount: confettiCount,
                         angle: 60,
                         spread: 55,
                         origin: { x: 0 },
                         colors: ['#ff1493', '#4A90E2', '#89CFF0']
                     });
                     confetti({
-                        particleCount: 60,
+                        particleCount: confettiCount,
                         angle: 120,
                         spread: 55,
                         origin: { x: 1 },
                         colors: ['#ff69b4', '#1560BD', '#5D8AA8']
                     });
-                }, 1500);
+                }, window.innerWidth < 768 ? 2000 : 1500);
                 
                 // 30 saniye sonra durdur
                 setTimeout(() => {
@@ -438,6 +444,16 @@
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
                 closeModal();
+                closeSpecial();
+            }
+        });
+        
+        // Mobilde geri tuşu desteği
+        window.addEventListener('popstate', function(event) {
+            if (document.getElementById('modal').style.display === 'flex') {
+                closeModal();
+            }
+            if (document.getElementById('specialDay').style.display === 'flex') {
                 closeSpecial();
             }
         });
