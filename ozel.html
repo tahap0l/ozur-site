@@ -1,124 +1,446 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <title>Seninle Geçen Günler</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seninle Geçen Günler</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <div class="days-counter">
-      <h2>Seninle <span class="highlight" id="gunSayaci">0</span> Gün Olduk</h2>
-      <p class="counter-subtitle">♥ Her geçen gün seni daha çok seviyorum ♥</p>
-    </div>
-
-    <h3>Galeri</h3>
-    <div class="gallery">
-      <div class="gallery-item" onclick="showModal('resim1.jpeg', '24 Nisan 2025', 'Seninle ilk buluşmamız o günün heyecanını mutluluğunu hiçbir şekilde anlatamam. O gün seninle ilk kez bu kadar detaylı konuştuğumuzda yağmurda sırılsıklam olduğumuzda dedim ki ben evimi buldum. O günden beri işe evim yuvam oldu 🤍')">
-        <img src="resim1.jpeg" alt="Tarih: 24.04.2025">
-      </div>
-      <div class="gallery-item" onclick="showModal('resim2.jpeg', '31 Mayıs 2025', 'Hayatımın en güzel ve en mutlu günlerinden mezun olduğum günde yanımda olman paha biçilemezdi bitanem. Çünkü seni çok seviyorum. Böyle bir günü birlikte yaşadığımız için çok mutluyum')">
-        <img src="resim2.jpeg" alt="Tarih: 31.05.2025">
-      </div>
-      <div class="gallery-item" onclick="showModal('resim3.jpeg', '16 Haziran 2025', 'Okulda birlikte geçirdiğimiz son günümüz. Bir yandan mutlu olurken bir yandan hüzünle boğulduğum bir gün. Okulun koridorlarında ki buluşmalarımız, ilk zamanlardaki utangaçlıklarımız, birbirimize sorular hazırlamamız. Kısacası aşkımız bu okulda doğdu sevgilim ve hiç bitmemesi dileğiyle. Bir ömürr')">
-        <img src="resim3.jpeg" alt="Tarih: 16.06.2025">
-      </div>
-      <div class="gallery-item" onclick="showModal('resim4.jpeg', '19 Haziran 2025', 'Birlikte kutladığımız 2. ayımız. Sayende bu 2 ayda hayata gülümsemeye, gelecek hedefleri kurmaya, her daim mutlu olmaya başladım bitanem. Bugünü hiç unutmayacağım. Birlikte 2 ay değil, 2 ömür diliyorum')">
-        <img src="resim4.jpeg" alt="Tarih: 19.06.2025">
-      </div>
-      <div class="gallery-item" onclick="showModal('resim5.jpeg', '19 Haziran 2025', 'Birlikte yaptığımız en garip ama bir o kadar da güzel şeylerden biri ise hiç bilmediğimiz bir parkta çift maskeleri yapmamızdı. Yoldan geçenlerin bize bakıp gülmeleri çok güzeldi')">
-        <img src="resim5.jpeg" alt="Tarih: 19.06.2025">
-      </div>
-      <div class="gallery-item" onclick="showModal('resim6.jpeg', '22 Haziran 2025', 'Ailemle ilk tanıştığın gün sevgilim. Seni bu kadar çabuk ailemle tanıştırmamın sebebi kendimi sana bağlamam, seninle bir gelecek görmem, sensiz yapamayacağımı anlamam. İyiki tanıtmışımm. Seni çok seviyorummm')">
-        <img src="resim6.jpeg" alt="Tarih: 22.06.2025">
-      </div>
-      <div class="gallery-item" onclick="showModal('resim7.jpeg', '27 Haziran 2025', 'Birlikte gizlice durduğumuz en geç saat o günün en güzeli. Yanı ise seninle birlikte gün batımını izlemekti ve hayaller kurmaktı 🤍🤍')">
-        <img src="resim7.jpeg" alt="Tarih: 27.06.2025">
-      </div>
-      <div class="gallery-item" onclick="showModal('resim8.jpeg', '27 Haziran 2025', 'Birlikte uyuduğumuz ilk gece. Yan yana olmasakta ruhlarımız birdi ve sen uyurken sana defalarca kez aşık oldum. Her nefes alışında binlerce kez şükür ettim bitanemm. İyiki varsın')">
-        <img src="resim8.jpeg" alt="Tarih: 27.06.2025">
-      </div>
-      <div class="gallery-item" onclick="showModal('resim9.jpeg', '03 Temmuz 2025', 'Çiçek aldığım ilk ve son kız olman🤍🤍')">
-        <img src="resim9.jpeg" alt="Tarih: 03.07.2025">
-      </div>
-      <div class="gallery-item" onclick="showModal('resim10.jpeg', '30 Haziran 2025', 'Onca ağrıya, strese rağmen yinede benimle buluştuğun gün. Seni çok seviyorummm. İnşallah iyi gelmişimdir sana 🤍')">
-        <img src="resim10.jpeg" alt="Tarih: 30.06.2025">
-      </div>
-      <div class="gallery-item" onclick="showModal('resim11.jpeg', '31 Mayıs 2025', 'Birlikte ettiğimiz ilk dans. O anı hiçbir kelimeyle anlatamam. İçimde sönmüş bir kömür sanki, çiçekler açtı. Öyle bir güzellik doğdu içe. Dans ederken bana bakan gözlerin, gülümseyen dudakların. Beni hayata bağlayan şey sensin bitanem. Nolur hiç gitme, hep benimle kal')">
-        <img src="resim11.jpeg" alt="Tarih: 31.05.2025">
-      </div>
-      <div class="gallery-item" onclick="showModal('resim12.jpeg', '05 Haziran 2025', 'Birlikte yaptığımız ilk piknik. Birine ilk defa bu kadar hevesli, heyecanlı bir tatlı yapmıştım. Çok güzeldi çünkü seninle birlikte yedik. Fatma hoca tarafından basıldığımızı da hiç bir zaman unutmayacağım')">
-        <img src="resim12.jpeg" alt="Tarih: 05.06.2025">
-      </div>
-    </div>
-
-    <!-- Modal (Popup) -->
-    <div id="modal" class="modal" onclick="closeModal()">
-      <span class="close">&times;</span>
-      <img class="modal-content" id="modalImg">
-      <div id="modalCaption"></div>
-    </div>
-
-    <h3>Bizim Şarkımız</h3>
-    <audio controls>
-      <source src="sarkimiz.mp3" type="audio/mpeg">
-      Tarayıcınız ses dosyasını desteklemiyor.
-    </audio>
-
-    <h3>Anılarımız</h3>
-    <ul>
-      <li>Tuval boyama</li>
-      <li>Film izleme</li>
-      <li>Oyun hamuru yapma</li>
-      <li>Lego yapma</li>
-      <li>Yapboz yapma</li>
-      <li>Piknik yapma</li>
-      <li>Parkta püskürtmek</li>
-      <li>Avm gezmek</li>
-      <li>Bubble tea içmek</li>
-      <li>Bilgisayar oyunu oynamak</li>
-      <li>Müzik dinlemek</li>
-      <li>Doğum gününe gizli gelmek</li>
-    </ul>
-
-    <h3>Bugüne Kadar Yaptıklarım İçin Affet Beni</h3>
-    <p>Seni çok seviyorum. Her şey için özür dilerim. 💕</p>
-  </div>
-
-  <script>
-    function showModal(imgSrc, date, description) {
-      var modal = document.getElementById("modal");
-      var modalImg = document.getElementById("modalImg");
-      var captionText = document.getElementById("modalCaption");
-      
-      modal.style.display = "block";
-      modalImg.src = imgSrc;
-      captionText.innerHTML = "<h3>" + date + "</h3><p>" + description + "</p>";
-    }
-
-    function closeModal() {
-      document.getElementById("modal").style.display = "none";
-    }
-
-    // OTOMATİK GÜN SAYACI
-// Başlangıç tarihi: 18 Nisan 2025
-const baslangicTarihi = new Date('2025-04-18');
-
-function gunSayisiniHesapla() {
-  const bugun = new Date();
-  const zamanFarki = bugun - baslangicTarihi;
-  const gunFarki = Math.floor(zamanFarki / (1000 * 60 * 60 * 24));
-  return Math.max(0, gunFarki);
-}
+    <!-- Flying Hearts Container -->
+    <div id="flyingHearts" class="flying-hearts"></div>
     
-    // Sayacı ilk yükleme
-    document.getElementById('gunSayaci').textContent = gunSayisiniHesapla();
-    
-    // Her dakika güncelle
-    setInterval(() => {
-      document.getElementById('gunSayaci').textContent = gunSayisiniHesapla();
-    }, 60000);
-  </script>
+    <!-- Geri Sayım Widget -->
+    <div id="countdownWidget" class="countdown-widget">
+        <div class="countdown-content">
+            <span class="countdown-label">Sonraki Özel Gün:</span>
+            <span id="countdownDays" class="countdown-days">0</span>
+            <span class="countdown-text">gün</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Cafcaflı Gün Sayacı -->
+        <div class="days-counter">
+            <div class="hearts-animation">💕💕💕</div>
+            <h2>Seninle <span class="highlight" id="gunSayaci">0</span> Gün Olduk</h2>
+            <div class="hearts-animation">💕💕💕</div>
+            <p class="counter-subtitle">♥ Her geçen gün seni daha çok seviyorum ♥</p>
+            <div class="love-message">💕 Seninle geçirdiğim her an bir hazine 💕</div>
+        </div>
+
+        <!-- Galeri -->
+        <section class="gallery-section">
+            <h3>Galeri</h3>
+            <div class="gallery">
+                <div class="gallery-item" onclick="showModal('resim1.jpeg', '24 Nisan 2025', 'Seninle ilk buluşmamız o günün heyecanını mutluluğunu hiçbir şekilde anlatamam. O gün seninle ilk kez bu kadar detaylı konuştuğumuzda yağmurda sırılsıklam olduğumuzda dedim ki ben evimi buldum. O günden beri işe evim yuvam oldu 🤍')">
+                    <img src="resim1.jpeg" alt="İlk buluşmamız">
+                    <div class="gallery-overlay">
+                        <span>24 Nisan 2025</span>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="showModal('resim2.jpeg', '31 Mayıs 2025', 'Hayatımın en güzel ve en mutlu günlerinden mezun olduğum günde yanımda olman paha biçilemezdi bitanem. Çünkü seni çok seviyorum. Böyle bir günü birlikte yaşadığımız için çok mutluyum')">
+                    <img src="resim2.jpeg" alt="Mezuniyet">
+                    <div class="gallery-overlay">
+                        <span>31 Mayıs 2025</span>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="showModal('resim3.jpeg', '16 Haziran 2025', 'Okulda birlikte geçirdiğimiz son günümüz. Bir yandan mutlu olurken bir yandan hüzünle boğulduğum bir gün. Okulun koridorlarında ki buluşmalarımız, ilk zamanlardaki utangaçlıklarımız, birbirimize sorular hazırlamamız. Kısacası aşkımız bu okulda doğdu sevgilim ve hiç bitmemesi dileğiyle. Bir ömürr')">
+                    <img src="resim3.jpeg" alt="Son okul günü">
+                    <div class="gallery-overlay">
+                        <span>16 Haziran 2025</span>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="showModal('resim4.jpeg', '19 Haziran 2025', 'Birlikte kutladığımız 2. ayımız. Sayende bu 2 ayda hayata gülümsemeye, gelecek hedefleri kurmaya, her daim mutlu olmaya başladım bitanem. Bugünü hiç unutmayacağım. Birlikte 2 ay değil, 2 ömür diliyorum')">
+                    <img src="resim4.jpeg" alt="2. ay kutlaması">
+                    <div class="gallery-overlay">
+                        <span>19 Haziran 2025</span>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="showModal('resim5.jpeg', '19 Haziran 2025', 'Birlikte yaptığımız en garip ama bir o kadar da güzel şeylerden biri ise hiç bilmediğimiz bir parkta çift maskeleri yapmamızdı. Yoldan geçenlerin bize bakıp gülmeleri çok güzeldi')">
+                    <img src="resim5.jpeg" alt="Çift maskeler">
+                    <div class="gallery-overlay">
+                        <span>19 Haziran 2025</span>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="showModal('resim6.jpeg', '22 Haziran 2025', 'Ailemle ilk tanıştığın gün sevgilim. Seni bu kadar çabuk ailemle tanıştırmamın sebebi kendimi sana bağlamam, seninle bir gelecek görmem, sensiz yapamayacağımı anlamam. İyiki tanıtmışımm. Seni çok seviyorummm')">
+                    <img src="resim6.jpeg" alt="Aile tanışması">
+                    <div class="gallery-overlay">
+                        <span>22 Haziran 2025</span>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="showModal('resim7.jpeg', '27 Haziran 2025', 'Birlikte gizlice durduğumuz en geç saat o günün en güzeli. Yanı ise seninle birlikte gün batımını izlemekti ve hayaller kurmaktı 🤍🤍')">
+                    <img src="resim7.jpeg" alt="Gün batımı">
+                    <div class="gallery-overlay">
+                        <span>27 Haziran 2025</span>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="showModal('resim8.jpeg', '27 Haziran 2025', 'Birlikte uyuduğumuz ilk gece. Yan yana olmasakta ruhlarımız birdi ve sen uyurken sana defalarca kez aşık oldum. Her nefes alışında binlerce kez şükür ettim bitanemm. İyiki varsın')">
+                    <img src="resim8.jpeg" alt="İlk gece">
+                    <div class="gallery-overlay">
+                        <span>27 Haziran 2025</span>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="showModal('resim9.jpeg', '03 Temmuz 2025', 'Çiçek aldığım ilk ve son kız olman🤍🤍')">
+                    <img src="resim9.jpeg" alt="Çiçek">
+                    <div class="gallery-overlay">
+                        <span>03 Temmuz 2025</span>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="showModal('resim10.jpeg', '30 Haziran 2025', 'Onca ağrıya, strese rağmen yinede benimle buluştuğun gün. Seni çok seviyorummm. İnşallah iyi gelmişimdir sana 🤍')">
+                    <img src="resim10.jpeg" alt="Sağlıklı gün">
+                    <div class="gallery-overlay">
+                        <span>30 Haziran 2025</span>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="showModal('resim11.jpeg', '31 Mayıs 2025', 'Birlikte ettiğimiz ilk dans. O anı hiçbir kelimeyle anlatamam. İçimde sönmüş bir kömür sanki, çiçekler açtı. Öyle bir güzellik doğdu içe. Dans ederken bana bakan gözlerin, gülümseyen dudakların. Beni hayata bağlayan şey sensin bitanem. Nolur hiç gitme, hep benimle kal')">
+                    <img src="resim11.jpeg" alt="İlk dans">
+                    <div class="gallery-overlay">
+                        <span>31 Mayıs 2025</span>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="showModal('resim12.jpeg', '05 Haziran 2025', 'Birlikte yaptığımız ilk piknik. Birine ilk defa bu kadar hevesli, heyecanlı bir tatlı yapmıştım. Çok güzeldi çünkü seninle birlikte yedik. Fatma hoca tarafından basıldığımızı da hiç bir zaman unutmayacağım')">
+                    <img src="resim12.jpeg" alt="İlk piknik">
+                    <div class="gallery-overlay">
+                        <span>05 Haziran 2025</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal -->
+        <div id="modal" class="modal">
+            <div class="modal-content-wrapper">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <img class="modal-content" id="modalImg">
+                <div id="modalCaption"></div>
+            </div>
+        </div>
+
+        <!-- Güzelleştirilmiş Şarkı Bölümü -->
+        <section class="music-section">
+            <h3>🎵 Bizim Şarkımız</h3>
+            <div class="music-player-container">
+                <div class="album-cover">
+                    <div class="vinyl-record">
+                        <div class="record-hole"></div>
+                    </div>
+                </div>
+                <div class="music-controls">
+                    <audio id="musicPlayer" controls>
+                        <source src="sarkimiz.mp3" type="audio/mpeg">
+                        Tarayıcınız ses dosyasını desteklemiyor.
+                    </audio>
+                    <div class="song-info">
+                        <h4 id="songTitle">Özel Şarkımız</h4>
+                        <p id="songArtist">Yaşır & Hazel</p>
+                    </div>
+                    <div class="music-visualizer">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Anılar -->
+        <section class="memories-section">
+            <h3>Anılarımız</h3>
+            <ul class="memories-list">
+                <li>Tuval boyama</li>
+                <li>Film izleme</li>
+                <li>Oyun hamuru yapma</li>
+                <li>Lego yapma</li>
+                <li>Yapboz yapma</li>
+                <li>Piknik yapma</li>
+                <li>Parkta püskürtmek</li>
+                <li>Avm gezmek</li>
+                <li>Bubble tea içmek</li>
+                <li>Bilgisayar oyunu oynamak</li>
+                <li>Müzik dinlemek</li>
+                <li>Doğum gününe gizli gelmek</li>
+            </ul>
+        </section>
+
+        <!-- Son Mesaj -->
+        <section class="final-message">
+            <h3>Bugüne Kadar Yaptıklarım İçin Affet Beni</h3>
+            <p>Seni çok seviyorum. Her şey için özür dilerim. 💕</p>
+        </section>
+    </div>
+
+    <!-- Özel Gün Ekranı -->
+    <div id="specialDay" class="special-overlay" style="display: none;">
+        <div class="special-content">
+            <h1 id="specialTitle">💕 ÖZEL GÜN! 💕</h1>
+            <h2 id="specialSubtitle"></h2>
+            <p id="specialMessage"></p>
+            <button onclick="closeSpecial()" class="special-button">♥ Devam Et ♥</button>
+        </div>
+    </div>
+
+    <script>
+        // Flying hearts effect
+        function createFlyingHeart() {
+            const container = document.getElementById('flyingHearts');
+            const heart = document.createElement('div');
+            heart.innerHTML = '💕';
+            heart.className = 'flying-heart';
+            
+            // Random position
+            const startPos = Math.random() * 100;
+            heart.style.left = startPos + '%';
+            
+            // Random size
+            const size = 1 + Math.random() * 2;
+            heart.style.fontSize = size + 'rem';
+            
+            // Random color
+            const colors = ['💕', '💖', '💘', '💗', '💓', '💞', '💝'];
+            heart.innerHTML = colors[Math.floor(Math.random() * colors.length)];
+            
+            container.appendChild(heart);
+            
+            // Remove after animation
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        // Create hearts periodically
+        setInterval(createFlyingHeart, 1000);
+
+        // Modal fonksiyonları
+        function showModal(imgSrc, date, description) {
+            const modal = document.getElementById("modal");
+            const modalImg = document.getElementById("modalImg");
+            const captionText = document.getElementById("modalCaption");
+            
+            modalImg.src = imgSrc;
+            captionText.innerHTML = `
+                <div class="modal-date">${date}</div>
+                <div class="modal-description">${description}</div>
+            `;
+            
+            modal.style.display = "flex";
+            
+            // Modal dışına tıklayınca kapat
+            modal.onclick = function(event) {
+                if (event.target === modal) {
+                    closeModal();
+                }
+            }
+        }
+
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+
+        // Gün sayacı (106 gün)
+        const baslangicTarihi = new Date('2025-04-18');
+        
+        function gunSayisiniHesapla() {
+            const bugun = new Date();
+            const zamanFarki = bugun - baslangicTarihi;
+            const gunFarki = Math.floor(zamanFarki / (1000 * 60 * 60 * 24));
+            return Math.max(0, gunFarki);
+        }
+        
+        document.getElementById('gunSayaci').textContent = gunSayisiniHesapla();
+        
+        setInterval(() => {
+            document.getElementById('gunSayaci').textContent = gunSayisiniHesapla();
+        }, 60000);
+
+        // Özel günler (30 günde bir, 120 günden başlayarak)
+        const specialDays = [120, 150, 180, 210, 240, 270, 300, 330, 360];
+        
+        // Özel gün mesajları
+        const specialMessages = {
+            120: {
+                title: "💕 4. AYINIZI KUTLARIZ! 💕",
+                subtitle: "120 Gün Birlikte 💕 4 Ay",
+                message: "4 ay önce başlayan bu güzel macerada her gün seni daha çok seviyorum. 120 günde yaşadığımız her an bir hazine..."
+            },
+            150: {
+                title: "💕 5. AYINIZI KUTLARIZ! 💕",
+                subtitle: "150 Gün Birlikte 💕 5 Ay",
+                message: "5 aydır yan yana olmanın mutluluğuyla doluyuz. Bu 150 günde seninle geçirdiğim her an değerliydi..."
+            },
+            180: {
+                title: "💕 6. AYINIZI KUTLARIZ! 💕",
+                subtitle: "180 Gün Birlikte 💕 6 Ay",
+                message: "6 ay önce başlayan bu aşk macerasında seninle her gün daha da mutluyum. Yarım kalmayacak bu aşk..."
+            },
+            210: {
+                title: "💕 7. AYINIZI KUTLARIZ! 💕",
+                subtitle: "210 Gün Birlikte 💕 7 Ay",
+                message: "7 aydır yan yana olmanın keyfiyle doluyuz. 210 günde birbirimize olan aşkımız her geçen gün büyüyor..."
+            },
+            240: {
+                title: "💕 8. AYINIZI KUTLARIZ! 💕",
+                subtitle: "240 Gün Birlikte 💕 8 Ay",
+                message: "8 ay önce başlayan bu güzel yolculukta seninle her gün yeni bir mutluluk buldum. Sen benim her şeyimsin..."
+            },
+            270: {
+                title: "💕 9. AYINIZI KUTLARIZ! 💕",
+                subtitle: "270 Gün Birlikte 💕 9 Ay",
+                message: "9 aydır yan yana olmanın mutluluğuyla doluyuz. Bu 9 ayda yaşadığımız her an bir masal gibi güzeldi..."
+            },
+            300: {
+                title: "💕 10. AYINIZI KUTLARIZ! 💕",
+                subtitle: "300 Gün Birlikte 💕 10 Ay",
+                message: "10 ay önce başlayan bu aşkta her gün seni daha çok seviyorum. 300 günde biriken anılarımız sonsuza dek sürecek..."
+            },
+            330: {
+                title: "💕 11. AYINIZI KUTLARIZ! 💕",
+                subtitle: "330 Gün Birlikte 💕 11 Ay",
+                message: "11 aydır yan yana olmanın huzuruyla doluyuz. Bu 330 günde seninle geçirdiğim her an bir nimet..."
+            },
+            360: {
+                title: "💕 12. AYINIZI KUTLARIZ! 💕",
+                subtitle: "360 Gün Birlikte 💕 1 Yıl",
+                message: "🎉 1 YIL! 🎉 360 gün önce başlayan bu aşk macerasında seninle her gün daha da mutluyum. 1 yılın ardından da 1 ömür boyu..."
+            }
+        };
+
+        // Konfeti yükleme
+        function loadConfetti() {
+            const script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js';
+            script.onload = function() {
+                checkSpecialDay();
+                startCountdown();
+            };
+            document.head.appendChild(script);
+        }
+
+        // Özel gün kontrolü
+        function checkSpecialDay() {
+            const bugun = new Date();
+            const zamanFarki = bugun - baslangicTarihi;
+            const gunFarki = Math.floor(zamanFarki / (1000 * 60 * 60 * 24));
+            
+            if (specialDays.includes(gunFarki)) {
+                if (specialMessages[gunFarki]) {
+                    showSpecialDay(gunFarki);
+                }
+            }
+        }
+        
+        // Özel gün gösterimi
+        function showSpecialDay(gun) {
+            document.getElementById('specialTitle').textContent = specialMessages[gun].title;
+            document.getElementById('specialSubtitle').textContent = specialMessages[gun].subtitle;
+            document.getElementById('specialMessage').textContent = specialMessages[gun].message;
+            
+            document.getElementById('specialDay').style.display = 'flex';
+            
+            if (typeof confetti !== 'undefined') {
+                // Başlangıç konfetisi
+                confetti({
+                    particleCount: 200,
+                    spread: 80,
+                    origin: { y: 0.6 },
+                    colors: ['#ff1493', '#4A90E2', '#89CFF0', '#ff69b4', '#1560BD']
+                });
+                
+                // Sürekli konfeti
+                const confettiInterval = setInterval(() => {
+                    confetti({
+                        particleCount: 60,
+                        angle: 60,
+                        spread: 55,
+                        origin: { x: 0 },
+                        colors: ['#ff1493', '#4A90E2', '#89CFF0']
+                    });
+                    confetti({
+                        particleCount: 60,
+                        angle: 120,
+                        spread: 55,
+                        origin: { x: 1 },
+                        colors: ['#ff69b4', '#1560BD', '#5D8AA8']
+                    });
+                }, 1500);
+                
+                // 30 saniye sonra durdur
+                setTimeout(() => {
+                    clearInterval(confettiInterval);
+                }, 30000);
+            }
+        }
+        
+        function closeSpecial() {
+            document.getElementById('specialDay').style.display = 'none';
+        }
+
+        // Geri sayım widget'ı
+        function startCountdown() {
+            updateCountdown();
+            setInterval(updateCountdown, 60000); // Her dakika güncelle
+        }
+
+        function updateCountdown() {
+            const bugun = new Date();
+            const gunFarki = Math.floor((bugun - baslangicTarihi) / (1000 * 60 * 60 * 24));
+            
+            // Bir sonraki özel günü bul
+            let nextSpecialDay = specialDays.find(day => day > gunFarki);
+            
+            if (nextSpecialDay) {
+                const kalanGun = nextSpecialDay - gunFarki;
+                document.getElementById('countdownDays').textContent = kalanGun;
+                document.getElementById('countdownWidget').style.display = 'block';
+            } else {
+                document.getElementById('countdownWidget').style.display = 'none';
+            }
+        }
+        
+        window.onload = function() {
+            setTimeout(loadConfetti, 3000);
+        };
+
+        // Şarkı oynatıcı animasyonları
+        const audio = document.getElementById('musicPlayer');
+        const visualizer = document.querySelector('.music-visualizer');
+        const bars = document.querySelectorAll('.bar');
+        
+        if (audio && visualizer) {
+            audio.addEventListener('play', function() {
+                visualizer.classList.add('active');
+                // Rastgele bar yükseklikleri
+                setInterval(() => {
+                    bars.forEach(bar => {
+                        if (visualizer.classList.contains('active')) {
+                            const height = Math.floor(Math.random() * 30) + 5;
+                            bar.style.height = height + 'px';
+                        }
+                    });
+                }, 150);
+            });
+            
+            audio.addEventListener('pause', function() {
+                visualizer.classList.remove('active');
+                bars.forEach(bar => {
+                    bar.style.height = '5px';
+                });
+            });
+        }
+
+        // ESC tuşu ile modal kapatma
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+                closeSpecial();
+            }
+        });
+    </script>
 </body>
 </html>
